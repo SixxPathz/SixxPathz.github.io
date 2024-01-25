@@ -131,6 +131,11 @@ color: var(--color-brand) !important;
         border: 8px solid var(--color-brand);
     }
     
+    .navbar .nav-link{
+        font-weight: 700;
+        text-transform: uppercase;
+        color:var(--color-base) !important;
+    }
 /*Navbar End*/
 
 /*Content Wrapper*/
