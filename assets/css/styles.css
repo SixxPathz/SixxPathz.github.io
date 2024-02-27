@@ -11,6 +11,37 @@
     --color-grey:#2e2e2e;
     --sidbar-width: 300px;
     --font-base: "Bai JamJuree";
+    --color-1:#de1919;
+    --color-2:#d83e3e;
+    --color-3:#be5c5c;
+    --color-4:#b67878; ;
+}
+
+@keyframes background-pan{
+    from{
+        background-position: 0% center;
+    }
+    to{
+        background-position: 200% center ; 
+    }
+}
+
+@keyframes scale{
+    from, to{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1) ; 
+    }
+}
+
+@keyframes rotate{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(180deg) ; 
+    }
 }
 
 body{
@@ -76,7 +107,7 @@ img {
 
 .shadow-effect2{
     transition: all 0.5s;
-    box-shadow: 0px 0px 0 6px var(--color-base3);
+    box-shadow: 0px 0px 0 6px #aeadad;
 }
 
 
@@ -275,135 +306,67 @@ border-radius: 3rem;
     font-weight: 800;
 }
 
-#eduText{
-    color: rgb(241, 240, 240);
-}
-.card-group .big-card {
-    width: 30vmin;
-    border-radius: 10px;
-    margin: 0.5vmin;
-    transform: scale(1); /* Initial state without hover */
-    transition: transform 800ms cubic-bezier(.05, .43, .25, .95);
+.repo1{
+    font-weight: 800;
+    color: var(--color-brand2);
 }
 
-.card-group {
-    position:relative;
-}
 
-.card {
-    aspect-ratio: 5 / 7;
-    width: 30vmin;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 10px; /* Rounded corners for each card */
-    transition: transform 2000ms cubic-bezier(.05, .43, .25, .95);
-    background-size: cover;
-    will-change: transform;
-    background-position: center; /* Center the background image */
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-}
+  .image-container .image-card {
+    position: relative;
+    margin: 5px;
+    overflow: hidden;
+    flex: 0 0 calc(50% - 10px); /* Two images per row with a little gap */
+  }
 
-.big-card {
-    width: 22vmin;
-      border-radius: 10px; /* Rounded corners for each card */
-    margin: 0.5vmin;
-    will-change: transform;
-    transform: scale(1.2); /* Initial explosion effect for big cards */
-}
+  .image-container .image-card img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
 
-.lil-card {
+  .image-container .image-card:hover img {
+    transform: rotate(-5deg) scale(1.1);
+  }
 
-    width: 12vmin;
-    border-radius: 2vmin;
-    position: absolute;
-    transform: translate(-50%, -50%) rotate(-15deg); /* Initial slight translation and rotation for small cards */
-    transition: transform 800ms cubic-bezier(.05, .43, .25, .95), opacity 500ms ease-out;
-}
-
-/* Specific transformations for hover effects */
-.card-group:hover .big-card {
-    transform: translate(-50%, -50%) scale(1); /* Reset the transformation for big cards on hover */
-}
-
-.card-group:hover > .lil-card {
-    
-    transform: rotate(0deg); /* Reset the rotation on hover */
+  /* Optional: Add a box shadow or other styling to the card for a more pronounced effect */
+  .image-container .image-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  h1 > .magic {
+    display: inline-block;
+    position: relative;
 }
 
 
 
-.card-group .big-card:nth-child(2) {
-    transform: translateX(-150%) translateY(-10%) rotate(-15deg);
+  h1 > .magic > .magic-text{
+    animation: background-pan 3s linear infinite;
+    background: linear-gradient(to right,var(--color-1),var(--color-4),var(--color-brand2),var(--color-4),var(--color-brand));
+    background-size: 200%;
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent !important;
+    white-space: nowrap;
 }
 
-.card-group .big-card:nth-child(4) {
-    transform: translateX(-75%) translateY(-5%) rotate(-7.5deg);
+
+
+.social-icons3 a {
+    width: 36px;
+    height: 37px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+color:var(--color-brand);
+    border-radius: 100px;
+    font-size: 45px;
 }
 
-.card-group .big-card:nth-child(6) {
-    transform: translateX(75%) translateY(-5%) rotate(7.5deg);
-}
-
-.card-group .big-card:nth-child(8) {
-    transform: translateX(150%) translateY(-10%) rotate(15deg);
-}
-
-.card-group .lil-card:nth-child(1) {
-    transform: translate(-220%, -55%) rotate(-35deg); /* Increased translateX for the top lil card */
-}
-
-.card-group .lil-card:nth-child(3) {
-    transform: translate(120%, -55%) rotate(35deg);
-}
-
-.card-group .lil-card:nth-child(5) {
-    transform: translate(200%, 200%) rotate(120deg);
-}
-
-.card-group .lil-card:nth-child(7) {
-    transform: translate(-80%, 200%) rotate(-120deg); /* Adjusted translateX for the top right lil card */
-}
-
-/*Add Images*/
-.card:nth-child(1) {
-    background-image: url('/assets/images/pizza1.png');
-    border-radius: 15px !important;
-}
-
-.card:nth-child(2) {
-    background-image: url('/assets/images/pizza2.png');
-    border-radius: 15px !important;
-}
-
-.card:nth-child(3) {
-    background-image: url('/assets/images/pizza3.png');
-    border-radius: 15px !important;
-}
-
-.card:nth-child(4) {
-    background-image: url('/assets/images/pizza4.png');
-    border-radius: 15px !important;
-}
-
-.card:nth-child(5) {
-    background-image: url('/assets/images/pizza5.png');
-    border-radius: 15px !important;
-}
-
-.card:nth-child(6) {
-    background-image: url('/assets/images/pizza6.png');
-    border-radius: 15px !important;
-}
-
-.card:nth-child(7) {
-    background-image: url('/assets/images/pizza7.png');
-    border-radius: 15px !important;
-}
-
-.card:nth-child(8) {
-    background-image: url('/assets/images/pizza1.png');
-    border-radius: 15px !important;
+#eduTxt{
+    color:wheat;
 }
