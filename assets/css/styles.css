@@ -338,21 +338,7 @@ border-radius: 3rem;
   .image-container .image-card {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  h1 > .magic {
-    display: inline-block;
-    position: relative;
-}
-
-
-
-  h1 > .magic > .magic-text{
-    animation: background-pan 3s linear infinite;
-    background: linear-gradient(to right,var(--color-1),var(--color-4),var(--color-brand2),var(--color-4),var(--color-brand));
-    background-size: 200%;
-    -webkit-background-clip: text;  
-    -webkit-text-fill-color: transparent !important;
-    white-space: nowrap;
-}
+ 
 
 
 
