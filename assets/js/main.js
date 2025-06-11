@@ -16,9 +16,34 @@ AOS.init({
 
 });
 
-document.querySelectorAll('nav-link').forEach(links => {
-  if(links.href === window.location.href)
-  {
-    links.setAttribute('aria-current','page');
-  }
-})
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
+  let currentSection = '';
+
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= 100 && rect.bottom >= 100) {
+      currentSection = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${currentSection}`) {
+      link.classList.add('active');
+    }
+  });
+});
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+
+    if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
+      navbarToggler.click(); // Closes the mobile menu
+    }
+  });
+});

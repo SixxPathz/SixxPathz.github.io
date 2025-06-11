@@ -14,7 +14,7 @@
     --color-1:#de1919;
     --color-2:#d83e3e;
     --color-3:#be5c5c;
-    --color-4:#b67878; ;
+    --color-4:#b67878; 
 }
 
 @keyframes background-pan{
@@ -49,6 +49,9 @@ body{
     color: var(--color-body);
     font-family: var(--font-base), sans-serif;
     position: relative;
+    html {
+  scroll-behavior: smooth;
+}
 }
 p{
     color:var(--color-base3);
@@ -140,12 +143,12 @@ img {
 {
     color: var(--color-brand) !important;
 }
-/*
+
 .navbar .nav-link.active{
 
 text-underline-offset: 0.5rem;
 color: var(--color-brand) !important;
-}*/
+}
 
 @media (min-width: 992px) 
 {
