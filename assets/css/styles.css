@@ -140,12 +140,12 @@ img {
 {
     color: var(--color-brand) !important;
 }
-
+/*
 .navbar .nav-link.active{
 
 text-underline-offset: 0.5rem;
 color: var(--color-brand) !important;
-}
+}*/
 
 @media (min-width: 992px) 
 {
