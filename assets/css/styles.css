@@ -9,7 +9,7 @@
     --color-brand2: #2e2e2e;
     --color-base3: #aeadad;
     --color-grey:#2e2e2e;
-    --sidbar-width: 300px;
+    --sidbar-width: 350px;
     --font-base: "Bai JamJuree";
     --color-1:#de1919;
     --color-2:#d83e3e;
@@ -124,7 +124,7 @@ img {
     font-size: 32px;
     background-color: var(--color-brand);
     color: var(--color-base);
-    border-radius: 15px;
+    border-radius: 20px;
 }
 /*Navbar*/
 .navbar{
@@ -159,7 +159,7 @@ color: var(--color-brand) !important;
     }
 
     .navbar-brand img {
-        border: 8px solid var(--color-brand);
+        border: 8px solid var(--color-brand2);
     }
     
     .navbar .nav-link{
