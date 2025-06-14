@@ -23,8 +23,9 @@ window.addEventListener('scroll', () => {
   let currentSection = '';
 
   sections.forEach(section => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top <= 100 && rect.bottom >= 100) {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    if (window.scrollY >= sectionTop - 150 && window.scrollY < sectionTop + sectionHeight - 150) {
       currentSection = section.getAttribute('id');
     }
   });
@@ -37,13 +38,18 @@ window.addEventListener('scroll', () => {
   });
 });
 
+// Close mobile menu on nav link click
 navLinks.forEach(link => {
   link.addEventListener('click', () => {
-    const navbarToggler = document.querySelector('.navbar-toggler');
-    const navbarCollapse = document.querySelector('.navbar-collapse');
-
-    if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
-      navbarToggler.click(); // Closes the mobile menu
+    const navbarCollapse = document.getElementById('navbarNav');
+    if (navbarCollapse.classList.contains('show')) {
+      // Use Bootstrap's Collapse API to hide the menu
+      const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+      if (bsCollapse) {
+        bsCollapse.hide();
+      } else {
+        new bootstrap.Collapse(navbarCollapse).hide();
+      }
     }
   });
 });
